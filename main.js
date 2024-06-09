@@ -4,6 +4,7 @@ const axios = require("axios");
 // const { By } = require("selenium-webdriver");
 const { By, until } = require('selenium-webdriver');
 const sleep = require("./sleep");
+const dbAdd = require("./db");
 //const proxyRet = require("./proxy");
 let chrome = require("selenium-webdriver/chrome");
 //let proxy = require("selenium-webdriver/proxy");
@@ -117,34 +118,14 @@ async function f1() {
       );
   
       console.log(links); // Выводим список ссылок
+      dbAdd.dbAdd(links);
     } catch (error) {
       console.error('Ошибка при получении ссылок:', error);
     }
   }
   
   getLinksFromDiv();
-
-  // Поиск номера и проверка его на ноль м количество символов(11)
-  //   let findNumber = null;
-  //   do {
-  //     findNumber = await driver.findElement(
-  //       By.xpath(
-  //         '//button[@data-ga-stats-name="ask_question"]//ancestor::div[2]//child::div[1]'
-  //       )
-  //     );
-  //     let phoneNumber = await driver.executeScript(
-  //       'return arguments[0].innerText.replace("(","").replace(")","").replace("+","").replace("-","").replace(" ","").replace(" ","")',
-  //       findNumber
-  //     );
-
-  //     if (findNumber == null || phoneNumber.length != 11) {
-  //       await sleep.sleep(1000);
-  //       console.log("sleep 1000 ms");
-  //     } else {
-  //       console.log(phoneNumber);
-  //       break;
-  //     }
-  //   } while (true);
+  
   // await sleep.sleep(3000);
   // await driver.close();
   // await driver.quit();

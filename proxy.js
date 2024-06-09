@@ -1,6 +1,6 @@
 module.exports.proxyRet = proxyRet;
 const proxyChain = require("proxy-chain");
-async function proxyRet(){;
+async function proxyRet(){
 // let seleniumDriver = require("selenium-webdriver");
 const proxyUsername = "xHFMfokW69";
 const proxyPassword = "Vucm9R7x5D";
