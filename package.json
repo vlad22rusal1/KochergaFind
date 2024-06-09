@@ -11,6 +11,8 @@
   "dependencies": {
     "axios": "^1.6.8",
     "chromedriver": "^123.0.4",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.10.0",
     "proxy-chain": "^2.4.0",
     "selenium-webdriver": "^4.20.0"
   }
