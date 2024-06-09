@@ -1,7 +1,7 @@
 [
     {
         "domain": ".drom.ru",
-        "expirationDate": 1749709458.26607,
+        "expirationDate": 1752403662.149464,
         "hostOnly": false,
         "httpOnly": false,
         "name": "ring_session",
@@ -10,11 +10,11 @@
         "secure": true,
         "session": false,
         "storeId": null,
-        "value": "1.2.1713431510.1715149172.1715149457.7%2Bhrg%2BGQrp375q8yNSEQOyOV4WoDV4VtGssHIRIbyfo%3D"
+        "value": "1.1.1717842751.1717842751.1717843662.Hkm2rNCkkgEegGgDZPp1UMxHt1ffdbB0u1f0F1uetXk%3D"
     },
     {
         "domain": ".drom.ru",
-        "expirationDate": 1725517457.794044,
+        "expirationDate": 1728211662.149605,
         "hostOnly": false,
         "httpOnly": true,
         "name": "pony",
@@ -27,7 +27,7 @@
     },
     {
         "domain": ".drom.ru",
-        "expirationDate": 1749709458.265988,
+        "expirationDate": 1752403662.14936,
         "hostOnly": false,
         "httpOnly": false,
         "name": "ring",
@@ -36,11 +36,11 @@
         "secure": true,
         "session": false,
         "storeId": null,
-        "value": "83a98b29thIK3bHzMGe4AKD1X9IEA0a3"
+        "value": "76c2671pmPfUs2nV7ZxJlOX1KYhpA0a0"
     },
     {
         "domain": ".drom.ru",
-        "expirationDate": 1715152895.275702,
+        "expirationDate": 1717847249.685143,
         "hostOnly": false,
         "httpOnly": true,
         "name": "k6W",
@@ -49,11 +49,11 @@
         "secure": true,
         "session": false,
         "storeId": null,
-        "value": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRMQ2MxZUFvdV9kZkwteFVWMmdiWHlUM0JnWnAyYVNFSS00UGdIVzlkNEkiLCJ0eXAiOiJKV1QifQ.eyJfX3JvbGVzIjpbInZpbmVyIl0sImV4cCI6MTcxNTE1Mjg5NCwia2lkIjoiZExDYzFlQW91X2RmTC14VVYyZ2JYeVQzQmdacDJhU0VJLTRQZ0hXOWQ0SSIsInByb2plY3QiOiJkcm9tIiwic3ViIjoiMzEzMjc4NjEifQ.78StJ88kmavkzxvvQ6ZxQ5uHCoMwAgEamIkW-61PG2MSg9MM5DGdgwrBHEyKbRR0XFir3y_iuWngFXL0SI4sZR6B88CCR4Vtd6TykbxWZs4Fmsxa1W4ukGvy8210JmHUHXIr3Psc9RwEJ7BOj_2Me3DixYb3D1tBG_zyMS7q1eI"
+        "value": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImRMQ2MxZUFvdV9kZkwteFVWMmdiWHlUM0JnWnAyYVNFSS00UGdIVzlkNEkiLCJ0eXAiOiJKV1QifQ.eyJfX3JvbGVzIjpbInZpbmVyIl0sImV4cCI6MTcxNzg0NzI0OSwia2lkIjoiZExDYzFlQW91X2RmTC14VVYyZ2JYeVQzQmdacDJhU0VJLTRQZ0hXOWQ0SSIsInByb2plY3QiOiJkcm9tIiwic3ViIjoiMzEzMjc4NjEifQ.eF5FR55XySPQNLN48-SZMovTgkq1-5IvHGEoRmOI0ovFHxyt4wrWsTggmR2Eall3SFtQZhr6tGXPKToM7e7UcPj73F-QgOPZgHhtMtTVvmT4BKB2eImqEqaGwuLh9DJcnVbnOe3CWWJDI057YkfcdWQrkR06YqdMbS469YEqbYw"
     },
     {
         "domain": ".drom.ru",
-        "expirationDate": 1725517457.79402,
+        "expirationDate": 1728211662.149498,
         "hostOnly": false,
         "httpOnly": true,
         "name": "boobs",
@@ -63,5 +63,18 @@
         "session": false,
         "storeId": null,
         "value": "37e993d3aeb12190ae7121c75207aa72534c705345ffe67378ea05c5bf7c156cu1de0675"
+    },
+    {
+        "domain": "www.drom.ru",
+        "expirationDate": 1751958670.965071,
+        "hostOnly": true,
+        "httpOnly": false,
+        "name": "spid",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "1717398673283_ecb5c1b0a36761a5b3fdad1c0a67a9fb_7l2xek5gbajk9qf0"
     }
 ]
