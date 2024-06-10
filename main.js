@@ -117,7 +117,7 @@ async function f1() {
         divElement
       );
   
-      console.log(links); // Выводим список ссылок
+      // console.log(links); // Выводим список ссылок
       dbAdd.dbAdd(links);
     } catch (error) {
       console.error('Ошибка при получении ссылок:', error);

@@ -1,4 +1,5 @@
 const mysql = require('mysql');
+const util = require('util');
 
 const connection = mysql.createConnection({
     host: "localhost",
@@ -17,14 +18,26 @@ connection.connect(function (err) {
     }
 });
 module.exports.dbAdd = dbAdd;
-async function dbAdd(links){
-let query="SELECT * FROM untestedhref";
-connection.query(query,
-    function (err, result) {
-        if (err)
-            console.log(`Error executing the query - ${err}`)
-        else
-            console.log("Result: ", result);
-            // console.log("Result: ", result[0]['href']);
-    })
+const query = util.promisify(connection.query).bind(connection);
+async function dbAdd(links) {
+    for (let i = 0; i < links.length; i++) {
+        let filter = [links[i]];
+    
+        try {
+          const result1 = await query("SELECT * FROM testedhref WHERE href=?", filter);
+          const result2 = await query("SELECT * FROM untestedhref WHERE href=?", filter);
+    
+          if (result1.length === 0 && result2.length === 0) {
+            const values = [[null, links[i]]]; // null для автоинкрементного id
+            const sql = "INSERT INTO untestedhref(id_untest, href) VALUES ?";
+            const results = await query(sql, [values]);
+            console.log(results);
+          } else {
+            console.log(`Link ${links[i]} is already in one of the tables.`);
+          }
+        } catch (err) {
+          console.log(`Error executing the query - ${err}`);
+        }
+      }
+    
 }
