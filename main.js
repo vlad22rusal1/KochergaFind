@@ -8,10 +8,20 @@ const dbAdd = require("./db");
 //const proxyRet = require("./proxy");
 let chrome = require("selenium-webdriver/chrome");
 //let proxy = require("selenium-webdriver/proxy");
-
+// var iterPage=0;
 //const proxyChain = require("proxy-chain");
 
-async function f1() {
+module.exports.mainSearch = mainSearch;
+
+async function mainSearch(iterPage) {
+  let namePage = "";
+  if (iterPage == 1) {
+    // console.log("iterPage = 0 " + iterPage);
+    namePage = "https://auto.drom.ru/region22/all/";
+  } else {
+    console.log("Vivod iterpage!!! = " + iterPage);
+    namePage = "https://auto.drom.ru/region22/all/page" + iterPage + "/";
+  }
   //const newProxyString = proxyRet.proxyRet();
   let seleniumDriver = require("selenium-webdriver");
 
@@ -32,8 +42,28 @@ async function f1() {
   // const pageText = await driver.findElement(By.css("body")).getText();
   // console.log(pageText);
 
+  async function checkPage(namePage) {
+    const fetch = (await import('node-fetch')).default;
+    try {
+      const response = await fetch(namePage);
+      if (response.status !== 200) {
+        console.log('Страница не найдена или недоступна');
+        await sleep.sleep(3000);
+        await driver.close();
+        await driver.quit();
+        process.exit(1); // Останавливаем работу скрипта
+      }
+    } catch (error) {
+      console.error('Ошибка при проверке страницы:', error);
+      await sleep.sleep(3000);
+      await driver.close();
+      await driver.quit();
+      process.exit(1); // Останавливаем работу скрипта
+    }
+  }
   driver.manage().window().maximize();
-  driver.get("https://auto.drom.ru/region22/all/");
+  checkPage(namePage);
+  driver.get(namePage);
   sleep.sleep(1000);
 
   //чтение файла и внос в строку
@@ -57,7 +87,7 @@ async function f1() {
   // });
 
   await sleep.sleep(1000);
-  driver.get("https://auto.drom.ru/region22/all/");
+  driver.get(namePage);
   await sleep.sleep(1000);
 
   //   let btnShowContact = null;
@@ -103,7 +133,7 @@ async function f1() {
       // Находим div с указанным xpath
       const divElement = await driver.wait(until.elementLocated(By.xpath('//div[@data-bulletin-list="true"]')), 10000);
       await driver.sleep(1000); // Ждем 1 секунду для стабилизации страницы
-  
+
       // Используем executeScript для получения всех ссылок внутри div
       const links = await driver.executeScript(
         `
@@ -116,43 +146,21 @@ async function f1() {
         `,
         divElement
       );
-  
+      await sleep.sleep(3000);
+      await driver.close();
+      await driver.quit();
       // console.log(links); // Выводим список ссылок
-      dbAdd.dbAdd(links);
+      dbAdd.dbAdd(links, iterPage);
     } catch (error) {
       console.error('Ошибка при получении ссылок:', error);
     }
   }
-  
+
   getLinksFromDiv();
-  
-  // await sleep.sleep(3000);
-  // await driver.close();
-  // await driver.quit();
+
+
 }
-//const lines = fs.readFileSync("hrefsOfCars.txt", "utf8").split("\n");
-// console.log(lines.length)
-// lines.forEach(function (element) {
-// setTimeout(function(){
-// sleep.sleep(5000);
-// f(element);
-// sleep.sleep(15000);
-// }), 5000
-// });
-// for (let i = 0; i < lines.length; i++) {
-
-//   await f(lines[i]);
-
-// }
-// f(lines[0])
-//async function f1() {
-//for (let i = 0; i < lines.length; i++) {
-
-//  await f(lines[i]);
-
-// }
-//};
-f1();
+mainSearch(1);
 console.log("blya");
 // <div data-bulletin-list="true">
 // data-ftid="bulls-list_bull" 
