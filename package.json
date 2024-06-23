@@ -12,9 +12,9 @@
     "axios": "^1.7.2",
     "chromedriver": "^125.0.3",
     "mysql": "^2.18.1",
-    "mysql2": "^3.10.0",
+    "mysql2": "^3.10.1",
     "node-fetch": "^3.3.2",
-    "proxy-chain": "^2.4.0",
-    "selenium-webdriver": "^4.21.0"
+    "proxy-chain": "^2.5.0",
+    "selenium-webdriver": "^4.22.0"
   }
 }

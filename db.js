@@ -4,7 +4,7 @@ const mainSearch = require("./main");
 const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "root123",
+  password: "123456",
   database: "kochergadb"
 });
 // Connecting to database
