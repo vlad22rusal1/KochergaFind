@@ -31,11 +31,11 @@ async function dbAdd(links,iterPage) {
         const values = [[null, links[i]]]; // null для автоинкрементного id
         const sql = "INSERT INTO untestedhref(id_untest, href) VALUES ?";
         const results = await query(sql, [values]);
-        console.log(results);
+        // console.log(results);
       } else if (result1.length !== 0 && result2.length !== 0) {
         const deleteSql = "DELETE FROM untestedhref WHERE href=?";
         const deleteResult = await query(deleteSql, filter);
-        console.log("Delete: " + filter);
+        // console.log("Delete: " + filter);
       } else {
         console.log(`Link ${links[i]} is already in one of the tables.`);
       }
@@ -44,7 +44,6 @@ async function dbAdd(links,iterPage) {
     }
   }
   iterPage+=1;
-  console.log("in DB = " + iterPage);
+  // console.log("in DB = " + iterPage);
   mainSearch.mainSearch(iterPage);
-  
 }

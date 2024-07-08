@@ -1,14 +1,12 @@
 const fs = require("fs");
 require("chromedriver");
 const axios = require("axios");
-// const { By } = require("selenium-webdriver");
 const { By, until } = require('selenium-webdriver');
 const sleep = require("./sleep");
 const dbAdd = require("./db");
 //const proxyRet = require("./proxy");
 let chrome = require("selenium-webdriver/chrome");
 //let proxy = require("selenium-webdriver/proxy");
-// var iterPage=0;
 //const proxyChain = require("proxy-chain");
 
 module.exports.mainSearch = mainSearch;
@@ -16,10 +14,9 @@ module.exports.mainSearch = mainSearch;
 async function mainSearch(iterPage) {
   let namePage = "";
   if (iterPage == 1) {
-    // console.log("iterPage = 0 " + iterPage);
     namePage = "https://auto.drom.ru/region22/all/";
   } else {
-    console.log("Vivod iterpage!!! = " + iterPage);
+    //console.log("Vivod iterpage!!! = " + iterPage);
     namePage = "https://auto.drom.ru/region22/all/page" + iterPage + "/";
   }
   //const newProxyString = proxyRet.proxyRet();
@@ -66,68 +63,10 @@ async function mainSearch(iterPage) {
   driver.get(namePage);
   sleep.sleep(1000);
 
-  //чтение файла и внос в строку
-  // let str = fs.readFileSync("cookie.txt", "utf8");
-  // //создание списка
-  // let cookies = JSON.parse(str);
-
-  // await sleep.sleep(1000);
-  // cookies.forEach(function (element) {
-  //   try {
-  //     driver.manage().addCookie({
-  //       name: element.name,
-  //       value: element.value,
-  //       domain: element.domain,
-  //       path: element.path,
-  //       expirationDate: new Date(element.expirationDate * 1000),
-  //     });
-  //   } catch (err) {
-  //     console.log("Ошибка!:" + err);
-  //   }
-  // });
-
   await sleep.sleep(1000);
   driver.get(namePage);
   await sleep.sleep(1000);
 
-  //   let btnShowContact = null;
-  //   do {
-  //     btnShowContact = await driver.findElement(
-  //       By.xpath("//button[@data-ftid='open-contacts']")
-  //     );
-  //     if (btnShowContact == null) {
-  //       await sleep.sleep(1000);
-  //       console.log("sleep 1000 ms");
-  //     } else {
-  //       let text = await driver.executeScript(
-  //         "return arguments[0].innerText",
-  //         btnShowContact
-  //       );
-  //       break;
-  //     }
-  //   } while (true);
-  //   await btnShowContact.click();
-  //   await sleep.sleep(5000);
-
-  await sleep.sleep(1000);
-  // let spisok = null;
-  // do {
-  //   spisok = await driver.findElement(By.xpath('//div[@data-bulletin-list="true"]'));
-  //   // spisok = await driver.findElements(By.xpath('//a[@data-ftid="bulls-list_bull"]'));
-  //   //  console.log(spisok);
-  //   await sleep.sleep(1000);
-  //   if (spisok == null) {
-  //     await sleep.sleep(1000);
-  //     console.log("sleep 1000 ms");
-  //   }
-  //   else {
-  //     let listSp = await driver.executeScript(
-  //       "return arguments[0].innerText", spisok);
-  //     console.log(listSp);
-  //     break;
-  //   }
-
-  // } while (true);
   async function getLinksFromDiv() {
     try {
       // Находим div с указанным xpath
@@ -155,12 +94,9 @@ async function mainSearch(iterPage) {
       console.error('Ошибка при получении ссылок:', error);
     }
   }
-
   getLinksFromDiv();
-
-
 }
 mainSearch(1);
-console.log("blya");
+
 // <div data-bulletin-list="true">
 // data-ftid="bulls-list_bull" 
