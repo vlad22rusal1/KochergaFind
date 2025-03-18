@@ -22,6 +22,7 @@ connection.connect(function (err) {
 module.exports.dbAdd = dbAdd;
 
 const query = util.promisify(connection.query).bind(connection);
+
 async function dbAdd(links, iterPage) {
   for (let i = 0; i < links.length; i++) {
     // let filter = [links[i]];
@@ -47,18 +48,21 @@ async function dbAdd(links, iterPage) {
     //   console.log(`Error executing the query - ${err}`);
     // }
     try {
-      // Проверяем, есть ли ссылка в таблице Ad
-      const adResult = await query("SELECT ad_id FROM ad WHERE ad_link = ?", [
-        adLink,
-      ]);
+      // Проверяем, есть ли ссылка в таблице ad
+      const checkAdSql = "SELECT * FROM ad WHERE ad_link = ?";
+      const checkAdResult = await query(checkAdSql, [adLink]);
 
-      if (adResult.length === 0) {
-        // Если ссылки нет в таблице Ad, добавляем её в UncheckedAds
+      // Проверяем, есть ли ссылка в таблице unchecked_ads
+      const checkUncheckedSql = "SELECT * FROM unchecked_ads WHERE ad_link = ?";
+      const checkUncheckedResult = await query(checkUncheckedSql, [adLink]);
+
+      // Если ссылки нет ни в ad, ни в unchecked_ads, добавляем её в UncheckedAds
+      if (checkAdResult.length === 0 && checkUncheckedResult.length === 0) {
         const insertSql = "INSERT INTO unchecked_ads (ad_link) VALUES (?)";
         const insertResult = await query(insertSql, [adLink]);
         console.log(`Ссылка добавлена в unchecked_ads: ${adLink}`);
       } else {
-        console.log(`Ссылка уже существует в таблице ad: ${adLink}`);
+        console.log(`Ссылка уже существует в ad или unchecked_ads: ${adLink}`);
       }
     } catch (err) {
       console.log(`Ошибка при выполнении запроса: ${err}`);

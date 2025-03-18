@@ -22,7 +22,11 @@ async function mainSearch(iterPage) {
   //const newProxyString = proxyRet.proxyRet();
   let seleniumDriver = require("selenium-webdriver");
 
-  // const options = new chrome.Options().addArguments('--headless=new');
+  const options = new chrome.Options(); //настройка без браузерного режима
+  options.addArguments("--headless=new");
+  options.addArguments("--disable-gpu");
+  options.addArguments("--window-size=1920,1080");
+
   let driver = new seleniumDriver.Builder()
     .forBrowser("chrome")
     // .setProxy(
@@ -30,9 +34,9 @@ async function mainSearch(iterPage) {
     //    http: newProxyString,
     //    https: newProxyString,
     //  })
-    //) //.setChromeOptions(options)
+    // )
+    .setChromeOptions(options)
     .build();
-  // .setChromeOptions(options)
 
   //Проверка работы прокси
   // driver.get("https://httpbin.io/ip");
