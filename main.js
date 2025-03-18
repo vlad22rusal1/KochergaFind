@@ -1,7 +1,7 @@
 const fs = require("fs");
 require("chromedriver");
 const axios = require("axios");
-const { By, until } = require('selenium-webdriver');
+const { By, until } = require("selenium-webdriver");
 const sleep = require("./sleep");
 const dbAdd = require("./db");
 //const proxyRet = require("./proxy");
@@ -40,18 +40,18 @@ async function mainSearch(iterPage) {
   // console.log(pageText);
 
   async function checkPage(namePage) {
-    const fetch = (await import('node-fetch')).default;
+    const fetch = (await import("node-fetch")).default;
     try {
       const response = await fetch(namePage);
       if (response.status !== 200) {
-        console.log('Страница не найдена или недоступна');
+        console.log("Страница не найдена или недоступна");
         await sleep.sleep(3000);
         await driver.close();
         await driver.quit();
         process.exit(1); // Останавливаем работу скрипта
       }
     } catch (error) {
-      console.error('Ошибка при проверке страницы:', error);
+      console.error("Ошибка при проверке страницы:", error);
       await sleep.sleep(3000);
       await driver.close();
       await driver.quit();
@@ -70,7 +70,10 @@ async function mainSearch(iterPage) {
   async function getLinksFromDiv() {
     try {
       // Находим div с указанным xpath
-      const divElement = await driver.wait(until.elementLocated(By.xpath('//div[@data-bulletin-list="true"]')), 10000);
+      const divElement = await driver.wait(
+        until.elementLocated(By.xpath('//div[@data-bulletin-list="true"]')),
+        10000
+      );
       await driver.sleep(1000); // Ждем 1 секунду для стабилизации страницы
 
       // Используем executeScript для получения всех ссылок внутри div
@@ -91,7 +94,7 @@ async function mainSearch(iterPage) {
       // console.log(links); // Выводим список ссылок
       dbAdd.dbAdd(links, iterPage);
     } catch (error) {
-      console.error('Ошибка при получении ссылок:', error);
+      console.error("Ошибка при получении ссылок:", error);
     }
   }
   getLinksFromDiv();
@@ -99,4 +102,4 @@ async function mainSearch(iterPage) {
 mainSearch(1);
 
 // <div data-bulletin-list="true">
-// data-ftid="bulls-list_bull" 
+// data-ftid="bulls-list_bull"
