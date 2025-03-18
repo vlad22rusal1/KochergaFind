@@ -1,3 +1,1 @@
-CHeck
-asdasldsadla
-sadasd
+Программа для парсинга ссылок Drom.ru(V.V. Voytekhovsky 2025)
