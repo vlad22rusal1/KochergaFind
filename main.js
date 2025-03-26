@@ -35,7 +35,7 @@ async function mainSearch(iterPage) {
     //    https: newProxyString,
     //  })
     // )
-    .setChromeOptions(options)
+    // .setChromeOptions(options)
     .build();
 
   //Проверка работы прокси
@@ -95,7 +95,7 @@ async function mainSearch(iterPage) {
       await sleep.sleep(3000);
       await driver.close();
       await driver.quit();
-      // console.log(links); // Выводим список ссылок
+      console.log(links); // Выводим список ссылок
       dbAdd.dbAdd(links, iterPage);
     } catch (error) {
       console.error("Ошибка при получении ссылок:", error);

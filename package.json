@@ -5,16 +5,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Chapalah",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "axios": "^1.8.3",
-    "chromedriver": "^134.0.3",
+    "axios": "^1.8.4",
+    "chromedriver": "^134.0.5",
     "mysql": "^2.18.1",
-    "mysql2": "^3.13.0",
+    "mysql2": "^3.14.0",
     "node-fetch": "^3.3.2",
     "proxy-chain": "^2.5.7",
-    "selenium-webdriver": "^4.29.0"
+    "selenium-webdriver": "^4.30.0"
   }
 }
