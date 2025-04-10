@@ -83,19 +83,27 @@ async function mainSearch(iterPage) {
       // Используем executeScript для получения всех ссылок внутри div
       const links = await driver.executeScript(
         `
-        var elements = arguments[0].querySelectorAll('a');
-        var links = [];
-        for (var i = 0; i < elements.length; i++) {
-          links.push(elements[i].href);
-        }
-        return links;
-        `,
+            var elements = arguments[0].querySelectorAll('a');
+            var links = [];
+            var uniqueUrls = new Set(); // Для фильтрации дубликатов
+            
+            for (var i = 0; i < elements.length; i++) {
+                const url = elements[i].href;
+                if (!uniqueUrls.has(url)) {
+                    links.push(url);
+                    uniqueUrls.add(url);
+                }
+            }
+            return links;
+            `,
         divElement
       );
+
       await sleep.sleep(3000);
       await driver.close();
       await driver.quit();
-      // console.log(links); // Выводим список ссылок
+
+      console.log("Уникальные ссылки:", links); // Выводим список уже уникальных ссылок
       dbAdd.dbAdd(links, iterPage);
     } catch (error) {
       console.error("Ошибка при получении ссылок:", error);
