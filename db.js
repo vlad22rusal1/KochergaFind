@@ -41,8 +41,8 @@ async function dbAdd(links, iterPage) {
       if (checkHrefResult.length === 0) {
         // Если записи нет - добавляем
         const insertSql = `
-          INSERT INTO hrefs (href_id, href, status) 
-          VALUES (?, ?, 'unchecked')
+          INSERT INTO hrefs (href_id, href, status, update_count) 
+          VALUES (?, ?, 'unchecked', 0)
         `;
         await query(insertSql, [hrefId, adLink]);
         console.log(`Ссылка добавлена в hrefs: ${adLink} с ID: ${hrefId}`);
