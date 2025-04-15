@@ -4,6 +4,7 @@ const axios = require("axios");
 const { By, until } = require("selenium-webdriver");
 const sleep = require("./sleep");
 const dbAdd = require("./db");
+const stealth = require("selenium-stealth");
 let chrome = require("selenium-webdriver/chrome");
 
 module.exports.mainSearch = mainSearch;

@@ -1,13 +1,14 @@
 {
-  "name": "findpage",
+  "name": "find-page-parser",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Chapalah",
   "license": "ISC",
   "description": "",
+  
   "dependencies": {
     "axios": "^1.8.4",
     "chromedriver": "^135.0.1",
@@ -15,6 +16,7 @@
     "mysql2": "^3.14.0",
     "node-fetch": "^3.3.2",
     "proxy-chain": "^2.5.8",
+    "selenium-stealth": "^1.0.1",
     "selenium-webdriver": "^4.31.0"
   }
 }
