@@ -4,14 +4,16 @@ const axios = require("axios");
 const { By, until } = require("selenium-webdriver");
 const sleep = require("./sleep");
 const dbAdd = require("./db");
-//const proxyRet = require("./proxy");
 let chrome = require("selenium-webdriver/chrome");
-//let proxy = require("selenium-webdriver/proxy");
-//const proxyChain = require("proxy-chain");
 
 module.exports.mainSearch = mainSearch;
 
 async function mainSearch(iterPage) {
+  if (iterPage > 100) {
+    console.log("Достигнута 100 страница. Парсинг завершен.");
+    process.exit(0); // Явно завершаем процесс
+  }
+
   let namePage = "";
   if (iterPage == 1) {
     namePage = "https://auto.drom.ru/region22/all/";
@@ -105,11 +107,21 @@ async function mainSearch(iterPage) {
 
       console.log("Уникальные ссылки:", links); // Выводим список уже уникальных ссылок
       dbAdd.dbAdd(links, iterPage);
+      // Проверяем, нужно ли продолжать парсинг
+      if (iterPage < 100) {
+        mainSearch(iterPage + 1);
+      } else {
+        console.log("Парсинг завершен. Обработано 100 страниц.");
+        process.exit(0); // Явно завершаем процесс
+      }
     } catch (error) {
       console.error("Ошибка при получении ссылок:", error);
+      await driver.close();
+      await driver.quit();
     }
   }
   getLinksFromDiv();
+  await sleep.sleep(3000 + Math.random() * 2000); // Рандомная задержка 3-5 сек
 }
 mainSearch(1);
 

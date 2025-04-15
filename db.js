@@ -66,8 +66,9 @@ async function dbAdd(links, iterPage) {
       console.log(`Ошибка при выполнении запроса: ${err}`);
     }
   }
-  iterPage++;
-  mainSearch.mainSearch(iterPage);
+  // iterPage++;
+  // mainSearch.mainSearch(iterPage);
+  console.log(`Обработка страницы ${iterPage} завершена`);
 }
 
 function extractIdFromUrl(url) {
