@@ -1,11 +1,13 @@
+#!/usr/bin/env node
 const fs = require("fs");
-require("chromedriver");
+// require("chromedriver");
 const axios = require("axios");
 const { By, until } = require("selenium-webdriver");
 const sleep = require("./sleep");
 const dbAdd = require("./db");
 const stealth = require("selenium-stealth");
 let chrome = require("selenium-webdriver/chrome");
+const chromedriver = require("chromedriver");
 
 module.exports.mainSearch = mainSearch;
 
