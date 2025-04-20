@@ -12,23 +12,63 @@ const chromedriver = require("chromedriver");
 module.exports.mainSearch = mainSearch;
 
 async function mainSearch(iterPage) {
-  if (iterPage > 100) {
-    console.log("Достигнута 100 страница. Парсинг завершен.");
+  if (iterPage > 10) {
+    console.log("Достигнута 10 страница. Парсинг завершен.");
     process.exit(0); // Явно завершаем процесс
   }
 
-  let namePage = "";
-  if (iterPage == 1) {
-    namePage = "https://auto.drom.ru/region22/all/";
-  } else {
-    //console.log("Vivod iterpage!!! = " + iterPage);
-    namePage = "https://auto.drom.ru/region22/all/page" + iterPage + "/";
+  const namePageFilter = JSON.parse(
+    fs.readFileSync("./namePageFilter.json", "utf-8")
+  );
+
+  function getRandomKeyValue(obj) {
+    const keys = Object.keys(obj);
+    const randomKey = keys[Math.floor(Math.random() * keys.length)];
+    return {
+      key: randomKey,
+      value: obj[randomKey],
+    };
   }
-  //const newProxyString = proxyRet.proxyRet();
+
+  // Пример использования
+  const { key, value } = getRandomKeyValue(namePageFilter);
+  let namePage = "";
+  // if (iterPage == 1 && key == "1") {
+  //   namePage = value;
+  // } else if (iterPage > 1 && key == "1") {
+  //   namePage = value + "page" + iterPage + "/";
+  // } else if (iterPage == 1 && key != "1") {
+  //   namePage = value;
+  // } else {
+  //   const paramsAndHash = value.split("/all/")[1];
+  //   const domen = value.split("/all/")[0];
+  //   namePage = domen + "page" + iterPage + "/" + paramsAndHash;
+  // }
+  // Разбираем URL на части
+  const urlObj = new URL(value);
+  const pathname = urlObj.pathname; // например, "/region22/all/"
+  const searchAndHash = urlObj.search + urlObj.hash; // "?order=volume#tabs"
+
+  if (iterPage === 1) {
+    // Для первой страницы оставляем URL как есть
+    namePage = value;
+  } else {
+    // Для страниц > 1 вставляем "pageN/" перед параметрами
+    if (pathname.endsWith("/")) {
+      // Если путь заканчивается на "/" (например, "/all/")
+      namePage = `${urlObj.origin}${pathname}page${iterPage}/${searchAndHash}`;
+    } else {
+      // Если нет (например, "/all")
+      namePage = `${urlObj.origin}${pathname}/page${iterPage}/${searchAndHash}`;
+    }
+  }
+
+  console.log(namePage);
+
   let seleniumDriver = require("selenium-webdriver");
 
   const options = new chrome.Options(); //настройка без браузерного режима
-  options.addArguments("--headless=new");
+  // options.addArguments("--headless=new");
   options.addArguments("--disable-gpu");
   options.addArguments("--window-size=1920,1080");
 
@@ -40,7 +80,7 @@ async function mainSearch(iterPage) {
     //    https: newProxyString,
     //  })
     // )
-    // .setChromeOptions(options)
+    .setChromeOptions(options)
     .build();
 
   //Проверка работы прокси
@@ -105,16 +145,23 @@ async function mainSearch(iterPage) {
       );
 
       await sleep.sleep(3000);
-      await driver.close();
-      await driver.quit();
+      // await driver.close();
+      // await driver.quit();
 
       console.log("Уникальные ссылки:", links); // Выводим список уже уникальных ссылок
       dbAdd.dbAdd(links, iterPage);
+
+      await driver.close();
+      await driver.quit();
+      // Пауза 10 секунд перед переходом к следующей странице
+      console.log("Пауза 10 секунд перед переходом к следующей странице...");
+      await sleep.sleep(10000);
+
       // Проверяем, нужно ли продолжать парсинг
-      if (iterPage < 100) {
+      if (iterPage < 10) {
         mainSearch(iterPage + 1);
       } else {
-        console.log("Парсинг завершен. Обработано 100 страниц.");
+        console.log("Парсинг завершен. Обработано 10 страниц.");
         process.exit(0); // Явно завершаем процесс
       }
     } catch (error) {
@@ -123,8 +170,11 @@ async function mainSearch(iterPage) {
       await driver.quit();
     }
   }
-  getLinksFromDiv();
-  await sleep.sleep(3000 + Math.random() * 2000); // Рандомная задержка 3-5 сек
+  // console.log("Ожидание 10 секунд...");
+  // await sleep.sleep(10000);
+  // getLinksFromDiv();
+  await getLinksFromDiv();
+  // await sleep.sleep(3000 + Math.random() * 2000); // Рандомная задержка 3-5 сек
 }
 mainSearch(1);
 

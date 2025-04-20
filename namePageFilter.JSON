@@ -1,0 +1,11 @@
+{
+    "1": "https://auto.drom.ru/region22/all/",
+    "2": "https://auto.drom.ru/region22/all/?order=price",
+    "3": "https://auto.drom.ru/region22/all/?order=price&order_d=desc",
+    "4": "https://auto.drom.ru/region22/all/?order=year#tabs",
+    "5": "https://auto.drom.ru/region22/all/?order=year&order_d=asc#tabs",
+    "6": "https://auto.drom.ru/region22/all/?order=price_category#tabs",
+    "7": "https://auto.drom.ru/region22/all/?order=mileage#tabs",
+    "8": "https://auto.drom.ru/region22/all/?order=volume#tabs"
+  }
+  

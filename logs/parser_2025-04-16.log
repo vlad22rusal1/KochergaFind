@@ -220,3 +220,122 @@ from unknown error: web view not found
 Node.js v22.14.0
 
 
+==== [2025-04-16T10:38:53.572Z] ====
+Длительность: 22.927 сек
+Database Connected
+Уникальные ссылки: [
+  'https://auto.drom.ru/biysk/nissan/note/680815619.html',
+  'https://auto.drom.ru/biysk/toyota/alphard/397675533.html',
+  'https://auto.drom.ru/barnaul/bmw/x6/868021928.html',
+  'https://auto.drom.ru/barnaul/ford/focus/920936213.html',
+  'https://auto.drom.ru/barnaul/toyota/carina/741973479.html',
+  'https://auto.drom.ru/biysk/honda/cr-v/817032075.html',
+  'https://auto.drom.ru/barnaul/toyota/camry_gracia/649964032.html',
+  'https://auto.drom.ru/barnaul/honda/cr-v/569363795.html',
+  'https://auto.drom.ru/barnaul/nissan/teana/537193219.html',
+  'https://auto.drom.ru/barnaul/nissan/sunny/121354902.html',
+  'https://auto.drom.ru/barnaul/hyundai/solaris/715217664.html',
+  'https://auto.drom.ru/barnaul/mitsubishi/dingo/164633277.html',
+  'https://auto.drom.ru/zmeinogorsk/chery/qq/443856728.html',
+  'https://auto.drom.ru/barnaul/toyota/highlander/444692827.html',
+  'https://auto.drom.ru/barnaul/hyundai/tucson/773633545.html',
+  'https://auto.drom.ru/barnaul/toyota/camry/307314860.html',
+  'https://auto.drom.ru/barnaul/mitsubishi/lancer/815530724.html',
+  'https://auto.drom.ru/barnaul/hyundai/tucson/467510186.html',
+  'https://auto.drom.ru/barnaul/volkswagen/jetta/726449115.html',
+  'https://auto.drom.ru/biysk/toyota/camry/894235936.html'
+]
+Ссылка добавлена в hrefs: https://auto.drom.ru/biysk/nissan/note/680815619.html с ID: 680815619
+Ссылка уже существует в hrefs: https://auto.drom.ru/biysk/toyota/alphard/397675533.html
+Ссылка добавлена в hrefs: https://auto.drom.ru/barnaul/bmw/x6/868021928.html с ID: 868021928
+Ссылка уже существует в hrefs: https://auto.drom.ru/barnaul/ford/focus/920936213.html
+Ссылка уже существует в hrefs: https://auto.drom.ru/barnaul/toyota/carina/741973479.html
+Ссылка уже существует в hrefs: https://auto.drom.ru/biysk/honda/cr-v/817032075.html
+Ссылка уже существует в hrefs: https://auto.drom.ru/barnaul/toyota/camry_gracia/649964032.html
+Ссылка уже существует в hrefs: https://auto.drom.ru/barnaul/honda/cr-v/569363795.html
+Ссылка уже существует в hrefs: https://auto.drom.ru/barnaul/nissan/teana/537193219.html
+Ссылка уже существует в hrefs: https://auto.drom.ru/barnaul/nissan/sunny/121354902.html
+Ссылка уже существует в hrefs: https://auto.drom.ru/barnaul/hyundai/solaris/715217664.html
+Ссылка уже существует в hrefs: https://auto.drom.ru/barnaul/mitsubishi/dingo/164633277.html
+Ссылка уже существует в hrefs: https://auto.drom.ru/zmeinogorsk/chery/qq/443856728.html
+Ссылка уже существует в hrefs: https://auto.drom.ru/barnaul/toyota/highlander/444692827.html
+Ссылка уже существует в hrefs: https://auto.drom.ru/barnaul/hyundai/tucson/773633545.html
+Ссылка уже существует в hrefs: https://auto.drom.ru/barnaul/toyota/camry/307314860.html
+Ссылка уже существует в hrefs: https://auto.drom.ru/barnaul/mitsubishi/lancer/815530724.html
+Ссылка уже существует в hrefs: https://auto.drom.ru/barnaul/hyundai/tucson/467510186.html
+Ссылка уже существует в hrefs: https://auto.drom.ru/barnaul/volkswagen/jetta/726449115.html
+Ссылка уже существует в hrefs: https://auto.drom.ru/biysk/toyota/camry/894235936.html
+Обработка страницы 1 завершена
+
+C:\Users\ЧАПАЛОХ\Desktop\Войтеховский Диплом 2025\Диплом!\KochergaFind\node_modules\selenium-webdriver\lib\error.js:523
+    let err = new ctor(data.message)
+              ^
+
+NoSuchWindowError: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.86)
+    at Object.throwDecodedError (C:\Users\ЧАПАЛОХ\Desktop\Войтеховский Диплом 2025\Диплом!\KochergaFind\node_modules\selenium-webdriver\lib\error.js:523:15)
+    at parseHttpResponse (C:\Users\ЧАПАЛОХ\Desktop\Войтеховский Диплом 2025\Диплом!\KochergaFind\node_modules\selenium-webdriver\lib\http.js:524:13)
+    at Executor.execute (C:\Users\ЧАПАЛОХ\Desktop\Войтеховский Диплом 2025\Диплом!\KochergaFind\node_modules\selenium-webdriver\lib\http.js:456:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async thenableWebDriverProxy.execute (C:\Users\ЧАПАЛОХ\Desktop\Войтеховский Диплом 2025\Диплом!\KochergaFind\node_modules\selenium-webdriver\lib\webdriver.js:745:17) {
+  remoteStacktrace: '\tGetHandleVerifier [0x00007FF666E25335+78597]\n' +
+    '\tGetHandleVerifier [0x00007FF666E25390+78688]\n' +
+    '\t(No symbol) [0x00007FF666BD91AA]\n' +
+    '\t(No symbol) [0x00007FF666BB1B63]\n' +
+    '\t(No symbol) [0x00007FF666C5EB6E]\n' +
+    '\t(No symbol) [0x00007FF666C7EBB2]\n' +
+    '\t(No symbol) [0x00007FF666C56EC3]\n' +
+    '\t(No symbol) [0x00007FF666C203F8]\n' +
+    '\t(No symbol) [0x00007FF666C21163]\n' +
+    '\tGetHandleVerifier [0x00007FF6670CEEED+2870973]\n' +
+    '\tGetHandleVerifier [0x00007FF6670C9698+2848360]\n' +
+    '\tGetHandleVerifier [0x00007FF6670E6973+2967875]\n' +
+    '\tGetHandleVerifier [0x00007FF666E4017A+188746]\n' +
+    '\tGetHandleVerifier [0x00007FF666E4845F+222255]\n' +
+    '\tGetHandleVerifier [0x00007FF666E2D2B4+111236]\n' +
+    '\tGetHandleVerifier [0x00007FF666E2D462+111666]\n' +
+    '\tGetHandleVerifier [0x00007FF666E13589+5465]\n' +
+    '\tBaseThreadInitThunk [0x00007FFFFBA47374+20]\n' +
+    '\tRtlUserThreadStart [0x00007FFFFBC1CC91+33]\n'
+}
+
+Node.js v22.14.0
+
+ОШИБКА: Command failed: node main.js
+C:\Users\ЧАПАЛОХ\Desktop\Войтеховский Диплом 2025\Диплом!\KochergaFind\node_modules\selenium-webdriver\lib\error.js:523
+    let err = new ctor(data.message)
+              ^
+
+NoSuchWindowError: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=135.0.7049.86)
+    at Object.throwDecodedError (C:\Users\ЧАПАЛОХ\Desktop\Войтеховский Диплом 2025\Диплом!\KochergaFind\node_modules\selenium-webdriver\lib\error.js:523:15)
+    at parseHttpResponse (C:\Users\ЧАПАЛОХ\Desktop\Войтеховский Диплом 2025\Диплом!\KochergaFind\node_modules\selenium-webdriver\lib\http.js:524:13)
+    at Executor.execute (C:\Users\ЧАПАЛОХ\Desktop\Войтеховский Диплом 2025\Диплом!\KochergaFind\node_modules\selenium-webdriver\lib\http.js:456:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async thenableWebDriverProxy.execute (C:\Users\ЧАПАЛОХ\Desktop\Войтеховский Диплом 2025\Диплом!\KochergaFind\node_modules\selenium-webdriver\lib\webdriver.js:745:17) {
+  remoteStacktrace: '\tGetHandleVerifier [0x00007FF666E25335+78597]\n' +
+    '\tGetHandleVerifier [0x00007FF666E25390+78688]\n' +
+    '\t(No symbol) [0x00007FF666BD91AA]\n' +
+    '\t(No symbol) [0x00007FF666BB1B63]\n' +
+    '\t(No symbol) [0x00007FF666C5EB6E]\n' +
+    '\t(No symbol) [0x00007FF666C7EBB2]\n' +
+    '\t(No symbol) [0x00007FF666C56EC3]\n' +
+    '\t(No symbol) [0x00007FF666C203F8]\n' +
+    '\t(No symbol) [0x00007FF666C21163]\n' +
+    '\tGetHandleVerifier [0x00007FF6670CEEED+2870973]\n' +
+    '\tGetHandleVerifier [0x00007FF6670C9698+2848360]\n' +
+    '\tGetHandleVerifier [0x00007FF6670E6973+2967875]\n' +
+    '\tGetHandleVerifier [0x00007FF666E4017A+188746]\n' +
+    '\tGetHandleVerifier [0x00007FF666E4845F+222255]\n' +
+    '\tGetHandleVerifier [0x00007FF666E2D2B4+111236]\n' +
+    '\tGetHandleVerifier [0x00007FF666E2D462+111666]\n' +
+    '\tGetHandleVerifier [0x00007FF666E13589+5465]\n' +
+    '\tBaseThreadInitThunk [0x00007FFFFBA47374+20]\n' +
+    '\tRtlUserThreadStart [0x00007FFFFBC1CC91+33]\n'
+}
+
+Node.js v22.14.0
+
+
