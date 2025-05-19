@@ -2,11 +2,9 @@ const { exec } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
-// Конфигурация
-const INTERVAL_MINUTES = 120; // 2 часа = 120 минут
+const INTERVAL_MINUTES = 120;
 const LOG_DIR = path.join(__dirname, 'logs');
 
-// Создаем папку для логов, если её нет
 if (!fs.existsSync(LOG_DIR)) {
   fs.mkdirSync(LOG_DIR);
 }
@@ -26,9 +24,8 @@ function runParser() {
   
   const child = exec('node main.js', (error, stdout, stderr) => {
     const endTime = new Date();
-    const duration = (endTime - startTime) / 1000; // в секундах
+    const duration = (endTime - startTime) / 1000;
     
-    // Логирование
     const logEntry = [
       `==== [${timestamp}] ====`,
       `Длительность: ${duration} сек`,
@@ -47,18 +44,15 @@ function runParser() {
     }
   });
 
-  // Реализация для Windows (правильное закрытие процесса)
   process.on('SIGINT', () => {
     child.kill();
     process.exit();
   });
 }
 
-// Основной цикл
 function startScheduler() {
   runParser();
   
-  // Запускаем каждые 2 часа
   const intervalMs = INTERVAL_MINUTES * 60 * 1000;
   setInterval(runParser, intervalMs);
   
